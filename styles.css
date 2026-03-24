@@ -1,6 +1,6 @@
 /* =============================================
    DIO IMPLANT — Corporate Website Styles
-   Theme: Corporate Purple + Dark Premium
+   Theme: Modern Corporate Purple + Light Premium
    ============================================= */
 
 :root {
@@ -18,10 +18,18 @@
   --dark-500: #3D3B5C;
 
   --light-100: #FFFFFF;
-  --light-200: #F1F0F9;
-  --light-300: #C8C5E1;
+  --light-200: #F8F7FC;
+  --light-300: #EEEDF6;
   --light-400: #9895B8;
   --light-500: #6E6B8B;
+  --light-600: #52506B;
+
+  --text-dark: #1A1833;
+  --text-body: #3D3B5C;
+  --text-muted: #6E6B8B;
+
+  --section-light: #FFFFFF;
+  --section-light-alt: #F8F7FC;
 
   --gradient-hero: linear-gradient(135deg, var(--dark-900) 0%, var(--dark-800) 40%, var(--primary-dark) 100%);
   --gradient-accent: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
@@ -59,8 +67,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--light-100);
-  background-color: var(--dark-900);
+  color: var(--text-body);
+  background-color: var(--section-light);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -104,10 +112,31 @@ img {
 }
 
 .header.scrolled {
-  background: rgba(10, 14, 26, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(78, 76, 176, 0.04);
+}
+
+.header.scrolled .logo-img {
+  filter: brightness(0.3);
+}
+
+.header.scrolled .nav-item a {
+  color: var(--text-body);
+}
+
+.header.scrolled .nav-item a:hover,
+.header.scrolled .nav-item.active a {
+  color: var(--primary);
+}
+
+.header.scrolled .nav-item.active a::after {
+  background: var(--gradient-accent);
+}
+
+.header.scrolled .hamburger span {
+  background: var(--text-dark);
 }
 
 .header-inner {
@@ -633,6 +662,15 @@ img {
   background-clip: text;
 }
 
+/* Hero: “Lideri” — not gradient text; must contrast with busy light areas of hero bg */
+.title-line-suffix {
+  color: #faf9ff;
+  text-shadow:
+    0 0 32px rgba(12, 11, 26, 0.9),
+    0 2px 16px rgba(12, 11, 26, 0.65),
+    0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
 .hero-desc {
   max-width: 520px;
   font-size: 1.05rem;
@@ -1005,27 +1043,27 @@ img {
 .core-tech {
   position: relative;
   padding: 120px 0;
-  background: var(--dark-900);
+  background: var(--section-light);
   overflow: hidden;
 }
 
 .core-tech::before {
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(78, 76, 176, 0.2), transparent);
+  background: linear-gradient(to right, transparent, rgba(78, 76, 176, 0.1), transparent);
 }
 
 .core-tech::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: url("dionavi_sample1.png") center center / cover no-repeat;
-  opacity: 0.2;
-  filter: saturate(0.7) blur(3px);
+  background: url("subVisual_img02.png") center center / cover no-repeat;
+  opacity: 0.06;
+  filter: saturate(0.5) blur(3px);
   transform: scale(1.02);
   pointer-events: none;
 }
@@ -1082,7 +1120,7 @@ img {
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
-  color: var(--light-100);
+  color: var(--text-dark);
   margin-bottom: 24px;
 }
 
@@ -1096,7 +1134,7 @@ img {
 
 .core-tech-desc {
   font-size: 0.95rem;
-  color: var(--light-400);
+  color: var(--text-body);
   line-height: 1.7;
   margin-bottom: 36px;
   max-width: 340px;
@@ -1104,6 +1142,19 @@ img {
 
 .core-tech-btn {
   display: inline-flex;
+}
+
+.core-tech .btn-outline {
+  color: var(--primary);
+  border-color: rgba(78, 76, 176, 0.25);
+  background: rgba(78, 76, 176, 0.04);
+  backdrop-filter: none;
+}
+
+.core-tech .btn-outline:hover {
+  border-color: var(--primary);
+  background: rgba(78, 76, 176, 0.08);
+  color: var(--primary-dark);
 }
 
 /* Right: Staggered pins area */
@@ -1269,7 +1320,7 @@ img {
 .product-cats {
   position: relative;
   padding: 120px 0;
-  background: var(--dark-800);
+  background: var(--section-light-alt);
   overflow: hidden;
 }
 
@@ -1280,7 +1331,7 @@ img {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(78, 76, 176, 0.15), transparent);
+  background: linear-gradient(to right, transparent, rgba(78, 76, 176, 0.08), transparent);
 }
 
 .product-cats-inner {
@@ -1305,7 +1356,7 @@ img {
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: -0.03em;
-  color: var(--light-100);
+  color: var(--text-dark);
   margin-bottom: 40px;
 }
 
@@ -1343,7 +1394,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(78, 76, 176, 0.1) 0%, rgba(78, 76, 176, 0.02) 100%);
+  background: linear-gradient(135deg, rgba(78, 76, 176, 0.05) 0%, rgba(78, 76, 176, 0.01) 100%);
   opacity: 0;
   transition: opacity var(--transition-base);
   border-radius: var(--radius-md);
@@ -1354,9 +1405,9 @@ img {
 }
 
 .pcat-tab.active {
-  border-color: rgba(78, 76, 176, 0.3);
-  background: linear-gradient(135deg, rgba(78, 76, 176, 0.12) 0%, rgba(78, 76, 176, 0.03) 100%);
-  box-shadow: 0 4px 24px rgba(78, 76, 176, 0.1);
+  border-color: rgba(78, 76, 176, 0.15);
+  background: var(--light-100);
+  box-shadow: 0 4px 24px rgba(78, 76, 176, 0.08), 0 1px 3px rgba(0,0,0,0.04);
 }
 
 .pcat-tab.active::before {
@@ -1367,13 +1418,13 @@ img {
   font-family: var(--font-primary);
   font-size: 0.7rem;
   font-weight: 800;
-  color: rgba(157, 141, 241, 0.25);
+  color: rgba(78, 76, 176, 0.2);
   min-width: 24px;
   transition: color var(--transition-base);
 }
 
 .pcat-tab.active .pcat-tab-num {
-  color: var(--accent);
+  color: var(--primary);
 }
 
 .pcat-tab-info {
@@ -1387,37 +1438,37 @@ img {
   font-family: var(--font-primary);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--light-400);
+  color: var(--text-muted);
   transition: color var(--transition-base);
 }
 
 .pcat-tab.active .pcat-tab-name {
-  color: var(--light-100);
+  color: var(--text-dark);
 }
 
 .pcat-tab:hover .pcat-tab-name {
-  color: var(--light-200);
+  color: var(--text-body);
 }
 
 .pcat-tab-desc {
   font-size: 0.75rem;
-  color: var(--light-500);
+  color: var(--text-muted);
   transition: color var(--transition-base);
   line-height: 1.4;
 }
 
 .pcat-tab.active .pcat-tab-desc {
-  color: var(--light-400);
+  color: var(--text-body);
 }
 
 .pcat-tab-arrow {
-  color: rgba(157, 141, 241, 0.15);
+  color: rgba(78, 76, 176, 0.2);
   transition: all var(--transition-base);
   flex-shrink: 0;
 }
 
 .pcat-tab.active .pcat-tab-arrow {
-  color: var(--accent);
+  color: var(--primary);
   transform: translateX(4px);
 }
 
@@ -1457,8 +1508,8 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-xl);
-  background: linear-gradient(160deg, rgba(78, 76, 176, 0.08) 0%, rgba(19, 18, 37, 0.5) 100%);
-  border: 1px solid rgba(78, 76, 176, 0.1);
+  background: linear-gradient(160deg, rgba(78, 76, 176, 0.04) 0%, rgba(78, 76, 176, 0.01) 100%);
+  border: 1px solid rgba(78, 76, 176, 0.08);
   overflow: hidden;
 }
 
@@ -1466,7 +1517,7 @@ img {
   width: 80%;
   height: 80%;
   object-fit: contain;
-  filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 8px 32px rgba(78, 76, 176, 0.12));
   transition: transform var(--transition-slow);
 }
 
@@ -1487,6 +1538,11 @@ img {
 
 .pcat-btn {
   align-self: center;
+  color: var(--light-100);
+}
+
+.pcat-btn:hover {
+  color: var(--light-100);
 }
 
 /* Responsive */
@@ -1979,7 +2035,7 @@ img {
    ============================================= */
 
 .site-footer {
-  background: var(--dark-900);
+  background: linear-gradient(180deg, #1C1A35 0%, #131225 100%);
   position: relative;
   overflow: hidden;
 }
@@ -2025,6 +2081,8 @@ img {
   height: 85px;
   width: auto;
   display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 
 .footer-tagline {
