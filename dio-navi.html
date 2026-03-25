@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>DIO Implant | Dijital Kimliğinde Dünya Markası</title>
+  <title>DIO NAVI | DIO Implant</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
   <!-- Header / Navigation -->
   <header class="header" id="header">
     <div class="header-inner">
@@ -20,7 +19,7 @@
 
       <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
-          <li class="nav-item active"><a href="index.html">Anasayfa</a></li>
+          <li class="nav-item"><a href="index.html">Anasayfa</a></li>
           <li class="nav-item nav-item-dropdown">
             <div class="nav-dropdown-row">
               <a href="urunler.html" class="nav-dropdown-trigger">
@@ -164,386 +163,215 @@
       </div>
     </div>
   </header>
+  <main class="navi-page">
 
-  <!-- Hero Banner Section -->
-  <section class="hero" id="hero">
-    <!-- Slide backgrounds -->
-    <div class="hero-slides">
-      <div class="hero-slide active" data-index="0">
-        <div class="slide-bg">
-          <img class="slide-hero-bg" src="technology_bg.png" alt="" decoding="async">
-          <div class="slide-gradient"></div>
-          <div class="slide-visual">
-            <div class="digital-particles" id="particles-0"></div>
+    <!-- ═══ 1. HERO — video arka plan ═══ -->
+    <section class="np-hero" aria-labelledby="np-hero-title">
+      <div class="np-hero-media">
+        <video autoplay muted loop playsinline poster="DIOnavi.1 (2).jpg">
+          <source src="dionavi_introduce_part.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="np-hero-overlay" aria-hidden="true"></div>
+      <div class="np-hero-particles" id="npHeroParticles" aria-hidden="true"></div>
+      <div class="np-inner np-hero-grid">
+        <div class="np-hero-content">
+          <div class="np-hero-badge">
+            <span class="np-hero-badge-dot" aria-hidden="true"></span>
+            <span>%100 Dijital Cerrahi Teknolojisi</span>
           </div>
+          <h1 id="np-hero-title" class="np-hero-title">
+            <span class="np-hero-title-sub">Geleceğin İmplant Teknolojisi</span>
+            <img src="DIO NAVI_white.png" alt="DIO NAVI" class="np-logo-hero">
+          </h1>
+          <p class="np-hero-lead">Dikişsiz ve hatasız implant deneyimi. Ağrısız, hızlı ve güvenli gülüşler için tam dijital cerrahi planlama ve kılavuz sistemi.</p>
         </div>
-        <div class="slide-floats">
-          <div class="slide-product">
-            <img src="product_coreTech_img01 (1).png" alt="DIO Implant">
+        <div class="np-hero-right">
+          <div class="np-hero-stats">
+            <div class="np-hero-stat"><strong>%98</strong><span>Hassasiyet</span></div>
+            <div class="np-hero-stat-div" aria-hidden="true"></div>
+            <div class="np-hero-stat"><strong>3D</strong><span>Planlama</span></div>
+            <div class="np-hero-stat-div" aria-hidden="true"></div>
+            <div class="np-hero-stat"><strong>Flapless</strong><span>Dikişsiz cerrahi</span></div>
+          </div>
+          <div class="np-hero-actions">
+            <a href="#nedir" class="btn btn-primary"><span>Keşfet</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="iletisim.html" class="btn np-btn-ghost">Bilgi Alın</a>
           </div>
         </div>
       </div>
-      <div class="hero-slide" data-index="1">
-        <div class="slide-bg">
-          <img class="slide-hero-bg" src="technology_bg.png" alt="" decoding="async">
-          <div class="slide-gradient"></div>
-          <div class="slide-visual">
-            <div class="placeholder-visual visual-2">
-              <div class="circuit-lines"></div>
-              <div class="scan-overlay"></div>
-              <div class="digital-particles" id="particles-1"></div>
-            </div>
-          </div>
+      <div class="np-hero-scroll" aria-hidden="true">
+        <div class="np-scroll-mouse"><div class="np-scroll-dot"></div></div>
+        <span>KEŞFET</span>
+      </div>
+    </section>
+
+    <!-- ═══ 2. DIO NAVI NEDİR? ═══ -->
+    <section class="np-section np-about" id="nedir">
+      <div class="np-inner np-about-grid">
+        <div class="np-about-text" data-animate>
+          <div class="section-tag"><span class="tag-line"></span><span class="tag-text"><img src="DIO NAVI 기본.png" alt="DIO NAVI" class="np-logo-tag"> Nedir?</span></div>
+          <h2 class="np-section-title">İmplant cerrahisinde <em class="text-gradient">dijital devrim</em></h2>
+          <p class="np-prose">DIOnavi, implant yerleştirme sürecini dijital ortamda planlayan ve cerrahi operasyonu kişiye özel hazırlanan rehberler (guide) aracılığıyla gerçekleştiren gelişmiş bir navigasyon sistemidir.</p>
+          <p class="np-prose">Klasik yöntemlerin aksine, operasyon öncesinde bilgisayar üzerinde yapılan simülasyon sayesinde hata payı sıfıra indirilir.</p>
         </div>
-        <div class="slide-floats">
-          <div class="slide-product">
-            <img src="product_coreTech_img02.png" alt="DIO Implant">
-          </div>
+        <figure class="np-about-figure" data-animate>
+          <img src="dionavi_sample1.png" alt="DIO NAVI dijital cerrahi planlama ekranı" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ═══ CTA — Bilgi alın ═══ -->
+    <section class="np-cta-bar">
+      <div class="np-inner np-cta-inner">
+        <div class="np-cta-copy">
+          <h2 class="np-cta-title"><img src="DIO NAVI 기본.png" alt="DIO NAVI" class="np-logo-inline np-logo-inline-light"> hakkında bilgi alın</h2>
+          <p class="np-cta-desc">Uygulama süreçleri ve eğitim talepleriniz için bizimle iletişime geçebilirsiniz.</p>
+        </div>
+        <div class="np-cta-actions">
+          <a href="iletisim.html" class="btn btn-primary"><span>İletişim</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="index.html" class="btn np-btn-ghost">Anasayfaya dön</a>
         </div>
       </div>
-      <div class="hero-slide" data-index="2">
-        <div class="slide-bg">
-          <img class="slide-hero-bg" src="technology_bg.png" alt="" decoding="async">
-          <div class="slide-gradient"></div>
-          <div class="slide-visual">
-            <div class="placeholder-visual visual-3">
-              <div class="globe-mesh"></div>
-              <div class="orbit-rings"></div>
-              <div class="digital-particles" id="particles-2"></div>
-            </div>
-          </div>
+    </section>
+
+    <!-- ═══ 3. NEDEN DIO NAVI? — 4 özellik ═══ -->
+    <section class="np-section np-features">
+      <div class="np-inner">
+        <div class="np-features-header" data-animate>
+          <div class="section-tag"><span class="tag-line"></span><span class="tag-text">Avantajlar</span></div>
+          <h2 class="np-section-title">Neden <img src="DIO NAVI 기본.png" alt="DIO NAVI" class="np-logo-inline">?</h2>
         </div>
-        <div class="slide-floats">
-          <div class="slide-product">
-            <img src="productIndex_coretech_pimg01 (1).png" alt="DIO UF Surgical Kit">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero content -->
-    <div class="hero-content">
-      <div class="hero-tag">
-        <span class="tag-line"></span>
-        <span class="tag-text">Dijital Diş Hekimliği Lideri</span>
-      </div>
-      <h1 class="hero-title">
-        <span class="title-line line-1">Dijital Kimliğinde</span>
-        <span class="title-line line-2"><em>Dünya</em> <span class="title-line-suffix">Lideri</span></span>
-      </h1>
-      <p class="hero-desc">Dijital cerrahi teknolojileriyle geleceğin implantolojisini bugünden deneyimleyin. Hassasiyet, güvenilirlik ve inovasyon bir arada.</p>
-      <div class="hero-actions">
-        <a href="#" class="btn btn-primary">
-          <span>Ürünleri Gör</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a href="#" class="btn btn-outline">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
-          </svg>
-          <span>Katalog İndir</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Slide indicators -->
-    <div class="hero-indicators">
-      <button class="indicator active" data-slide="0">
-        <span class="indicator-progress"></span>
-      </button>
-      <button class="indicator" data-slide="1">
-        <span class="indicator-progress"></span>
-      </button>
-      <button class="indicator" data-slide="2">
-        <span class="indicator-progress"></span>
-      </button>
-    </div>
-
-    <!-- Scroll hint -->
-    <div class="scroll-hint">
-      <div class="scroll-mouse">
-        <div class="scroll-wheel"></div>
-      </div>
-      <span>Keşfet</span>
-    </div>
-  </section>
-
-  <!-- Core Technology Section -->
-  <section class="core-tech" id="coreTech">
-    <svg class="core-tech-defs" width="0" height="0">
-      <defs>
-        <linearGradient id="pinGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="rgba(12,11,26,0.05)"/>
-          <stop offset="50%" stop-color="rgba(12,11,26,0.35)"/>
-          <stop offset="100%" stop-color="rgba(12,11,26,0.9)"/>
-        </linearGradient>
-      </defs>
-    </svg>
-
-    <div class="core-tech-inner">
-      <!-- Left: Text -->
-      <div class="core-tech-text">
-        <div class="section-tag">
-          <span class="tag-line"></span>
-          <span class="tag-text">Neden DIO Implant</span>
-        </div>
-        <h2 class="core-tech-title">ÇEKİRDEK<br><em>TEKNOLOJİ</em></h2>
-        <p class="core-tech-desc">DIO'nun teknolojik uzmanlığı, sürdürülebilir Ar-Ge yatırımı ve küresel pazar anlayışıyla diş hekimliğinin paradigmasını yeniden tanımlar.</p>
-        <a href="#" class="btn btn-outline core-tech-btn">
-          <span>Ürünleri Gör</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Right: Staggered Pins -->
-      <div class="core-tech-pins">
-        <!-- Pin 1: Hybrid Surface — bottom left, large -->
-        <div class="ct-pin ct-pin-1" data-animate>
-          <div class="pin-shape pin-lg">
-            <svg viewBox="0 0 280 400" class="pin-mask" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <clipPath id="pinClip1">
-                  <path d="M140,395 C140,395 5,235 5,135 C5,60 62,5 140,5 C218,5 275,60 275,135 C275,235 140,395 140,395 Z"/>
-                </clipPath>
-              </defs>
-              <g clip-path="url(#pinClip1)">
-                <image href="technology_img01.png" x="0" y="0" width="280" height="400" preserveAspectRatio="xMidYMid slice"/>
-                <rect x="0" y="0" width="280" height="400" fill="url(#pinGradient)"/>
-              </g>
-              <path d="M140,395 C140,395 5,235 5,135 C5,60 62,5 140,5 C218,5 275,60 275,135 C275,235 140,395 140,395 Z" fill="none" stroke="rgba(78,76,176,0.25)" stroke-width="2"/>
-            </svg>
-            <div class="pin-content">
-              <p class="pin-subtitle">DIO Implant Çift Yüzey İşlemi</p>
-              <h3 class="pin-title">Hibrit Yüzey<br>Teknolojisi</h3>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pin 2: UV Implant — center, medium -->
-        <div class="ct-pin ct-pin-2" data-animate>
-          <div class="pin-shape pin-md">
-            <svg viewBox="0 0 240 350" class="pin-mask" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <clipPath id="pinClip2">
-                  <path d="M120,345 C120,345 5,205 5,115 C5,52 53,5 120,5 C187,5 235,52 235,115 C235,205 120,345 120,345 Z"/>
-                </clipPath>
-              </defs>
-              <g clip-path="url(#pinClip2)">
-                <image href="technology_img02.png" x="0" y="0" width="240" height="350" preserveAspectRatio="xMidYMid slice"/>
-                <rect x="0" y="0" width="240" height="350" fill="url(#pinGradient)"/>
-              </g>
-              <path d="M120,345 C120,345 5,205 5,115 C5,52 53,5 120,5 C187,5 235,52 235,115 C235,205 120,345 120,345 Z" fill="none" stroke="rgba(78,76,176,0.25)" stroke-width="2"/>
-            </svg>
-            <div class="pin-content">
-              <p class="pin-subtitle">DIO Vakum UV Aktivasyon Teknolojisi</p>
-              <h3 class="pin-title">UV İmplant</h3>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pin 3: DIO NAVI — top right, medium -->
-        <div class="ct-pin ct-pin-3" data-animate>
-          <div class="pin-shape pin-md">
-            <svg viewBox="0 0 220 320" class="pin-mask" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <clipPath id="pinClip3">
-                  <path d="M110,315 C110,315 5,190 5,105 C5,48 49,5 110,5 C171,5 215,48 215,105 C215,190 110,315 110,315 Z"/>
-                </clipPath>
-              </defs>
-              <g clip-path="url(#pinClip3)">
-                <image href="history_img02.png" x="0" y="0" width="220" height="320" preserveAspectRatio="xMidYMid slice"/>
-                <rect x="0" y="0" width="220" height="320" fill="url(#pinGradient)"/>
-              </g>
-              <path d="M110,315 C110,315 5,190 5,105 C5,48 49,5 110,5 C171,5 215,48 215,105 C215,190 110,315 110,315 Z" fill="none" stroke="rgba(78,76,176,0.25)" stroke-width="2"/>
-            </svg>
-            <div class="pin-content">
-              <p class="pin-subtitle">Tam dijital implant cerrahi sistemi.</p>
-              <h3 class="pin-title">DIO NAVI<br>Kılavuz Sistemi</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIO NAVI Banner Section -->
-  <section class="dionavi-banner" id="dioNavi">
-    <!-- Background image layer -->
-    <div class="dionavi-bg-img">
-      <img src="DIOnavi.1 (2).jpg" alt="">
-    </div>
-    <!-- Animated background layers -->
-    <div class="dionavi-bg">
-      <div class="dionavi-grid"></div>
-      <div class="dionavi-glow glow-1"></div>
-      <div class="dionavi-glow glow-2"></div>
-      <div class="dionavi-scanline"></div>
-      <div class="dionavi-particles" id="naviParticles"></div>
-    </div>
-
-    <!-- Content -->
-    <div class="dionavi-inner">
-      <div class="dionavi-text">
-        <div class="dionavi-badge">
-          <span class="dionavi-badge-dot"></span>
-          <span>Dijital Cerrahi Teknolojisi</span>
-        </div>
-        <h2 class="dionavi-title">
-          <span class="dionavi-title-sub">Geleceğin Cerrahisi</span>
-          DIO <em>NAVI</em>
-        </h2>
-        <p class="dionavi-desc">Tam dijital implant cerrahi planlama ve kılavuz sistemi. Hassas, öngörülebilir ve minimal invaziv tedavi deneyimi.</p>
-        <div class="dionavi-stats">
-          <div class="dionavi-stat">
-            <span class="dionavi-stat-val">%98</span>
-            <span class="dionavi-stat-label">Hassasiyet</span>
-          </div>
-          <div class="dionavi-stat-divider"></div>
-          <div class="dionavi-stat">
-            <span class="dionavi-stat-val">3D</span>
-            <span class="dionavi-stat-label">Planlama</span>
-          </div>
-          <div class="dionavi-stat-divider"></div>
-          <div class="dionavi-stat">
-            <span class="dionavi-stat-val">Full</span>
-            <span class="dionavi-stat-label">Dijital Akış</span>
-          </div>
-        </div>
-        <a href="dio-navi.html" class="btn btn-primary dionavi-btn">
-          <span>DIO NAVI'yi Keşfet</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="dionavi-visual" data-animate>
-        <div class="navi-carousel">
-          <div class="navi-carousel-scene">
-            <div class="navi-carousel-ring" id="naviRing">
-              <div class="navi-carousel-item">
-                <img src="240621_dionavi_comp1_front.png" alt="DIO NAVI Cerrahi Planlama">
-              </div>
-              <div class="navi-carousel-item">
-                <img src="240604_dionavi_implant_connector_transparent.png" alt="DIO NAVI İmplant Bağlantı">
-              </div>
-              <div class="navi-carousel-item">
-                <img src="240422_dionavi_uvplusabutment_render.png" alt="DIO NAVI UV Plus Abutment">
-              </div>
-              <div class="navi-carousel-item">
-                <img src="240425_dionavi_initialdrill_transparent.png" alt="DIO NAVI Initial Drill">
-              </div>
-            </div>
-          </div>
-          <div class="navi-carousel-dots" id="naviDots">
-            <button class="navi-dot active" data-index="0"></button>
-            <button class="navi-dot" data-index="1"></button>
-            <button class="navi-dot" data-index="2"></button>
-            <button class="navi-dot" data-index="3"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Product Categories Section -->
-  <section class="product-cats" id="productCats">
-    <div class="product-cats-inner">
-      <!-- Left: Tabs -->
-      <div class="pcat-tabs">
-        <div class="section-tag">
-          <span class="tag-line"></span>
-          <span class="tag-text">Ürün Kategorileri</span>
-        </div>
-        <h2 class="pcat-title">Ürün<br><em>Portföyü</em></h2>
-
-        <div class="pcat-tab-list">
-          <button class="pcat-tab active" data-tab="implant">
-            <div class="pcat-tab-info">
-              <span class="pcat-tab-name">İmplant Sistemleri</span>
-              <span class="pcat-tab-desc">UF II, UF III, Narrow ve daha fazlası</span>
-            </div>
-            <span class="pcat-tab-arrow">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
+        <div class="np-features-grid">
+          <article class="np-feature-card" data-animate>
+            <span class="np-feature-ico" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </span>
-          </button>
-
-          <button class="pcat-tab" data-tab="dijital">
-            <div class="pcat-tab-info">
-              <span class="pcat-tab-name">Dijital Çözümler</span>
-              <span class="pcat-tab-desc">DIO Navi, tarama ve planlama</span>
-            </div>
-            <span class="pcat-tab-arrow">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
+            <h3>Dikişsiz Cerrahi</h3>
+            <p>Diş etini boydan boya kesmeye gerek kalmadan, sadece implantın yerleşeceği noktada küçük bir yuva açılır. Kanama ve şişlik minimuma iner.</p>
+          </article>
+          <article class="np-feature-card" data-animate>
+            <span class="np-feature-ico" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg>
             </span>
-          </button>
-
-          <button class="pcat-tab" data-tab="cerrahi">
-            <div class="pcat-tab-info">
-              <span class="pcat-tab-name">Cerrahi Setler</span>
-              <span class="pcat-tab-desc">Cerrahi kitler ve yardımcı ekipmanlar</span>
-            </div>
-            <span class="pcat-tab-arrow">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
+            <h3>Maksimum Hassasiyet</h3>
+            <p>3D tomografi ve ağız içi tarama verileri birleştirilerek implant konumu milimetrik olarak belirlenir. Sinirlere zarar verme riski ortadan kalkar.</p>
+          </article>
+          <article class="np-feature-card" data-animate>
+            <span class="np-feature-ico" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </span>
-          </button>
+            <h3>Hızlı İyileşme</h3>
+            <p>Geleneksel yöntemde haftalar süren iyileşme süreci, dikişsiz yöntem sayesinde çok daha hızlı tamamlanır. Sosyal hayatınıza hemen dönebilirsiniz.</p>
+          </article>
+          <article class="np-feature-card" data-animate>
+            <span class="np-feature-ico" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2M7 12h4"/></svg>
+            </span>
+            <h3>Geçici Diş Hazır</h3>
+            <p>Dijital planlama sayesinde, implantın üzerine takılacak geçici dişler operasyon anında hazır olabilir.</p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <!-- Right: Tab Content -->
-      <div class="pcat-display">
-        <div class="pcat-panel active" data-panel="implant">
-          <div class="pcat-image-wrap">
-            <img src="product_coreTech_img01 (1).png" alt="İmplant Sistemleri">
-            <div class="pcat-image-glow"></div>
-          </div>
-          <a href="#" class="btn btn-primary pcat-btn">
-            <span>Daha Fazla Görüntüle</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+    <!-- ═══ 4. SHOWCASE BANNER — tam genişlik ═══ -->
+    <section class="np-showcase" aria-label="DIO NAVI görsel">
+      <div class="np-showcase-bg">
+        <img src="subVisual_img02.png" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="np-showcase-overlay" aria-hidden="true"></div>
+      <div class="np-inner np-showcase-inner">
+        <blockquote class="np-showcase-quote" data-animate>
+          <p>%100 dijital planlama ile<br><strong>sıfır hata payı</strong></p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ═══ 5. SÜREÇ NASIL İŞLER? — 4 adım ═══ -->
+    <section class="np-section np-workflow" id="surec">
+      <div class="np-inner">
+        <div class="np-workflow-header" data-animate>
+          <div class="section-tag"><span class="tag-line"></span><span class="tag-text">İş Akışı</span></div>
+          <h2 class="np-section-title">Süreç nasıl <em class="text-gradient">işler?</em></h2>
         </div>
-
-        <div class="pcat-panel" data-panel="dijital">
-          <div class="pcat-image-wrap">
-            <img src="product_coreTech_img02.png" alt="Dijital Çözümler">
-            <div class="pcat-image-glow"></div>
+        <div class="np-workflow-timeline">
+          <div class="np-wf-step" data-animate>
+            <div class="np-wf-step-num"><span>01</span></div>
+            <div class="np-wf-step-body">
+              <figure class="np-wf-step-img"><img src="dionavi_workflow_img02.png" alt="Dijital Tarama" loading="lazy" decoding="async"></figure>
+              <h3>Dijital Tarama</h3>
+              <p>Hastanın ağız içi 3D tarayıcılar (Intraoral Scanner) ile taranır ve CBCT (Tomografi) görüntüleri alınır.</p>
+            </div>
           </div>
-          <a href="#" class="btn btn-primary pcat-btn">
-            <span>Daha Fazla Görüntüle</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="pcat-panel" data-panel="cerrahi">
-          <div class="pcat-image-wrap">
-            <img src="productIndex_coretech_pimg01 (1).png" alt="Cerrahi Setler">
-            <div class="pcat-image-glow"></div>
+          <div class="np-wf-step" data-animate>
+            <div class="np-wf-step-num"><span>02</span></div>
+            <div class="np-wf-step-body">
+              <figure class="np-wf-step-img"><img src="dionavi_workflow_img03.png" alt="Kişiye Özel Planlama" loading="lazy" decoding="async"></figure>
+              <h3>Kişiye Özel Planlama</h3>
+              <p>Hekim, dijital veriler üzerinde implantın en ideal açısını ve derinliğini simüle eder.</p>
+            </div>
           </div>
-          <a href="#" class="btn btn-primary pcat-btn">
-            <span>Daha Fazla Görüntüle</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          <div class="np-wf-step" data-animate>
+            <div class="np-wf-step-num"><span>03</span></div>
+            <div class="np-wf-step-body">
+              <figure class="np-wf-step-img"><img src="dionavi_workflow_img04.png" alt="Cerrahi Rehber Üretimi" loading="lazy" decoding="async"></figure>
+              <h3>Cerrahi Rehber Üretimi</h3>
+              <p>3D yazıcılar ile hastanın ağız yapısına tam uyumlu bir cerrahi rehber üretilir.</p>
+            </div>
+          </div>
+          <div class="np-wf-step" data-animate>
+            <div class="np-wf-step-num"><span>04</span></div>
+            <div class="np-wf-step-body">
+              <figure class="np-wf-step-img"><img src="240425_dionavi_initialdrill_transparent.png" alt="Hızlı Uygulama" loading="lazy" decoding="async"></figure>
+              <h3>Hızlı Uygulama</h3>
+              <p>Rehber ağza yerleştirilir ve implantlar planlanan noktalardan tek seferde, hatasız bir şekilde yerleştirilir.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- ═══ 6. GÖRSEL GALERI BANNER ═══ -->
+    <section class="np-gallery" aria-label="DIO NAVI galeri">
+      <div class="np-gallery-track">
+        <div class="np-gallery-item"><img src="240621_dionavi_comp1_front.png" alt="DIO NAVI Cerrahi Rehber" loading="lazy" decoding="async"></div>
+        <div class="np-gallery-item"><img src="240422_dionavi_uvplusabutment_render.png" alt="DIO NAVI UV Plus Abutment" loading="lazy" decoding="async"></div>
+        <div class="np-gallery-item"><img src="240604_dionavi_implant_connector_transparent.png" alt="DIO NAVI Konnektör" loading="lazy" decoding="async"></div>
+        <div class="np-gallery-item"><img src="240425_dionavi_initialdrill_transparent.png" alt="DIO NAVI Initial Drill" loading="lazy" decoding="async"></div>
+        <div class="np-gallery-item"><img src="history_img02.png" alt="DIO NAVI Yüzey Teknolojisi" loading="lazy" decoding="async"></div>
+      </div>
+    </section>
+
+    <!-- ═══ 7. KİMLER İÇİN İDEAL? ═══ -->
+    <section class="np-section np-ideal" id="kimler">
+      <div class="np-inner np-ideal-grid">
+        <div class="np-ideal-text" data-animate>
+          <div class="section-tag"><span class="tag-line"></span><span class="tag-text">Kimler için ideal?</span></div>
+          <h2 class="np-section-title"><img src="DIO NAVI 기본.png" alt="DIO NAVI" class="np-logo-inline"> kimlere <em class="text-gradient">uygun?</em></h2>
+        </div>
+        <ul class="np-ideal-list" data-animate>
+          <li class="np-ideal-item">
+            <span class="np-ideal-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><strong>Dişçi korkusu olanlar</strong><p>Ağrıdan çekinen hastaların en rahat şekilde tedavi olmasını sağlar.</p></div>
+          </li>
+          <li class="np-ideal-item">
+            <span class="np-ideal-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><strong>Sistemik rahatsızlığı olanlar</strong><p>Şeker, tansiyon vb. hastalıklarda hızlı iyileşme kritik önemdedir.</p></div>
+          </li>
+          <li class="np-ideal-item">
+            <span class="np-ideal-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><strong>Zamanı kısıtlı kişiler</strong><p>Kısa sürede çözüm arayanlar için ideal; operasyon süresi önemli ölçüde kısalır.</p></div>
+          </li>
+          <li class="np-ideal-item">
+            <span class="np-ideal-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></span>
+            <div><strong>Tam dişsizlik vakaları</strong><p>En doğru protez açısını arayan hastalarda en yüksek hassasiyeti sunar.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
   <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-top">

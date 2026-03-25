@@ -29,58 +29,177 @@
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
+  function resetProductMenus() {
+    document.querySelectorAll('.nav-item-dropdown.open').forEach((el) => {
+      el.classList.remove('open');
+      const b = el.querySelector('.nav-dropdown-expand');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+    document.querySelectorAll('.nav-dropdown-item-has-children.is-subopen').forEach((el) => {
+      el.classList.remove('is-subopen');
+      const b = el.querySelector('.nav-submenu-expand');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function closeMobileNav() {
+    hamburger.classList.remove('active');
+    mainNav.classList.remove('open');
+    document.body.style.overflow = '';
+    resetProductMenus();
+  }
+
   // ─── Mobile menu ───
   hamburger.addEventListener('click', () => {
+    const wasOpen = mainNav.classList.contains('open');
     hamburger.classList.toggle('active');
     mainNav.classList.toggle('open');
     document.body.style.overflow = mainNav.classList.contains('open') ? 'hidden' : '';
+    if (wasOpen) resetProductMenus();
   });
 
   mainNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      mainNav.classList.remove('open');
-      document.body.style.overflow = '';
+      closeMobileNav();
     });
   });
 
-  // ─── Hero Slider ───
-  function goToSlide(index) {
-    if (isTransitioning || index === currentSlide) return;
-    isTransitioning = true;
+  // ─── Ürünler dropdown (mobil: aç / kapat) ───
+  document.querySelectorAll('.nav-dropdown-expand').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const li = btn.closest('.nav-item-dropdown');
+      if (!li) return;
+      const willOpen = !li.classList.contains('open');
+      document.querySelectorAll('.nav-item-dropdown.open').forEach((other) => {
+        if (other !== li) {
+          other.classList.remove('open');
+          const oBtn = other.querySelector('.nav-dropdown-expand');
+          if (oBtn) oBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      li.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+  });
 
-    heroSlides[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
+  // ─── Ürünler alt kategoriler (mobil: accordion) ───
+  document.querySelectorAll('.nav-submenu-expand').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const item = btn.closest('.nav-dropdown-item-has-children');
+      if (!item) return;
+      const menu = item.closest('.nav-dropdown');
+      const willOpen = !item.classList.contains('is-subopen');
+      if (menu) {
+        menu.querySelectorAll('.nav-dropdown-item-has-children.is-subopen').forEach((other) => {
+          if (other !== item) {
+            other.classList.remove('is-subopen');
+            const ob = other.querySelector('.nav-submenu-expand');
+            if (ob) ob.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+      item.classList.toggle('is-subopen', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+  });
 
-    currentSlide = index;
+  // ─── Hero Slider (sadece anasayfa vb. hero olan sayfalarda) ───
+  const hero = document.getElementById('hero');
 
-    heroSlides[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
+  if (heroSlides.length) {
+    function goToSlide(index) {
+      if (isTransitioning || index === currentSlide) return;
+      isTransitioning = true;
+
+      heroSlides[currentSlide].classList.remove('active');
+      if (indicators.length) indicators[currentSlide].classList.remove('active');
+
+      currentSlide = index;
+
+      heroSlides[currentSlide].classList.add('active');
+      if (indicators.length) indicators[currentSlide].classList.add('active');
+
+      resetSlideTimer();
+
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 1200);
+    }
+
+    function nextSlide() {
+      goToSlide((currentSlide + 1) % heroSlides.length);
+    }
+
+    function resetSlideTimer() {
+      clearInterval(slideTimer);
+      slideTimer = setInterval(nextSlide, SLIDE_DURATION);
+    }
+
+    indicators.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.slide, 10);
+        goToSlide(idx);
+      });
+    });
 
     resetSlideTimer();
 
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 1200);
-  }
-
-  function nextSlide() {
-    goToSlide((currentSlide + 1) % heroSlides.length);
-  }
-
-  function resetSlideTimer() {
-    clearInterval(slideTimer);
-    slideTimer = setInterval(nextSlide, SLIDE_DURATION);
-  }
-
-  indicators.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const idx = parseInt(btn.dataset.slide, 10);
-      goToSlide(idx);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length);
     });
-  });
 
-  resetSlideTimer();
+    if (hero) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      hero.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      hero.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 60) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length);
+          }
+        }
+      }, { passive: true });
+
+      const heroContent = document.querySelector('.hero-content');
+
+      hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        const activeProduct = document.querySelector('.hero-slide.active .slide-product');
+        if (activeProduct) {
+          activeProduct.style.transform = `translate(${x * 15}px, ${y * 15}px) scale(1)`;
+        }
+
+        if (heroContent) {
+          heroContent.style.transform = `translate(${x * -5}px, ${y * -5}px)`;
+        }
+      });
+
+      hero.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.slide-product').forEach(el => {
+          el.style.transform = '';
+        });
+        if (heroContent) {
+          heroContent.style.transform = '';
+        }
+      });
+    }
+  }
 
   // ─── Particle System ───
   function createParticle(container) {
@@ -134,61 +253,6 @@
 
   document.querySelectorAll('[data-animate]').forEach(el => {
     animObserver.observe(el);
-  });
-
-  // ─── Keyboard navigation for slider ───
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') nextSlide();
-    if (e.key === 'ArrowLeft') goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length);
-  });
-
-  // ─── Touch support for slider ───
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const hero = document.getElementById('hero');
-
-  hero.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  hero.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 60) {
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length);
-      }
-    }
-  }, { passive: true });
-
-  // ─── Parallax on mouse move (subtle) ───
-  const heroContent = document.querySelector('.hero-content');
-
-  hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-    const activeProduct = document.querySelector('.hero-slide.active .slide-product');
-    if (activeProduct) {
-      activeProduct.style.transform = `translate(${x * 15}px, ${y * 15}px) scale(1)`;
-    }
-
-    if (heroContent) {
-      heroContent.style.transform = `translate(${x * -5}px, ${y * -5}px)`;
-    }
-  });
-
-  hero.addEventListener('mouseleave', () => {
-    const products = document.querySelectorAll('.slide-product');
-    products.forEach(el => {
-      el.style.transform = '';
-    });
-    if (heroContent) {
-      heroContent.style.transform = '';
-    }
   });
 
   // ─── Product Category Tabs ───
@@ -290,6 +354,31 @@
 
     updatePositions();
     startAuto();
+  }
+
+  /* ===== DIO NAVI Detail Page — Hero Particles ===== */
+  const npParticleContainer = document.getElementById('npHeroParticles');
+  if (npParticleContainer) {
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('span');
+      p.className = 'np-hero-particle';
+      const size = Math.random() * 3 + 2;
+      p.style.setProperty('--s', size + 'px');
+      p.style.setProperty('--d', (Math.random() * 10 + 6) + 's');
+      p.style.setProperty('--dl', (Math.random() * 6) + 's');
+      p.style.setProperty('--tx', (Math.random() * 100 - 50) + 'px');
+      p.style.setProperty('--ty', (Math.random() * -80 - 20) + 'px');
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      npParticleContainer.appendChild(p);
+    }
+  }
+
+  /* ===== DIO NAVI Detail Page — Gallery infinite scroll ===== */
+  const galleryTrack = document.querySelector('.np-gallery-track');
+  if (galleryTrack) {
+    const items = galleryTrack.innerHTML;
+    galleryTrack.innerHTML = items + items;
   }
 
 })();
